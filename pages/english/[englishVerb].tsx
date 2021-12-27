@@ -61,9 +61,7 @@ const English = ({ dataVerb }: { dataVerb: DataTypes }) => {
 
 export const getServerSideProps: GetServerSideProps = async context => {
   const DEV_URL = `${process.env.DEV}${context.params?.englishVerb}`
-  const response = context.params?.englishVerb
-  const t = typeof response ==='string'&& response.split('-').reverse()[0].split('.')[0]
-  const PRODUCTION_URL = `${process.env.PRODUCTION}${response}`
+  const PRODUCTION_URL = `${process.env.PRODUCTION}${context.params?.englishVerb}`
   const { data: dataVerb } = await axios.get<DataTypes>(DEV_URL)
   return {
     props: {
