@@ -6,6 +6,7 @@ import Typography from '../../components/Common/Typography'
 import { BaseStyledUI, CardBaseStyledUI, CardContainer, CardUI } from '../../components/Common/Responsive/CardContainer.style'
 import data from '../Data/data'
 import SideBar from '../SideBar/SideBar'
+import { EnglishPopularVerbProps } from '../PopularVerbs/EnglishPopularVerb'
 
 export type DataType = {
     verbList:{
@@ -31,7 +32,7 @@ const CardBase = styled(CardBaseStyledUI)(tw`p-4 shadow mt-4 rounded`)
 const CardUIStyled = styled(CardUI)(tw`p-4 shadow rounded bg-common`)
 const CardItem = styled.div(tw`px-4 flex justify-start gap-x-2 gap-y-0`)
 
-const CardVerb = ({verbList}:DataType) => {
+const CardVerb = ({verbList,popularVerb}:DataType & EnglishPopularVerbProps) => {
     return (
         <Base>
         <CardBase>
@@ -71,7 +72,7 @@ const CardVerb = ({verbList}:DataType) => {
                 ))
             }
        </CardBase>
-       <SideBar/>
+       <SideBar popularVerb={popularVerb}/>
        </Base>
     )
 }

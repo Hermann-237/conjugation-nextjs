@@ -14,6 +14,7 @@ import ModelVerb from '../../components/ModelVerb/ModelVerb'
 import InfinitifVerb from '../../components/InfinitivVerb/InfinitifVerb'
 import Footer from '../../components/Footer/Footer'
 import { GetServerSideProps } from 'next'
+import { EnglishPopularVerbProps } from '../../components/PopularVerbs/EnglishPopularVerb'
 
 type DataTypes = {
   result: string
@@ -33,7 +34,7 @@ type DataTypes = {
 }
 
 const SectionBase = styled.div(tw`mx-4 big:mx-20`)
-const English = ({ dataVerb }: { dataVerb: DataTypes }) => {
+const English = ({ dataVerb,popularVerb }: { dataVerb: DataTypes }&EnglishPopularVerbProps) => {
   const {
     query: { englishVerb },
   } = useRouter()
@@ -52,7 +53,7 @@ const English = ({ dataVerb }: { dataVerb: DataTypes }) => {
         <InfinitifVerb verbList={[dataVerb]} />
         <Divider style={{ marginTop: '2rem' }} />
         <ModelVerb verbList={[dataVerb]} />
-        <CardVerb verbList={[dataVerb]} />
+        <CardVerb verbList={[dataVerb]} popularVerb={popularVerb}/>
       </SectionBase>
       <Footer />
     </>
@@ -60,12 +61,13 @@ const English = ({ dataVerb }: { dataVerb: DataTypes }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-  const DEV_URL = `${process.env.DEV}${context.params?.englishVerb}`
-  const PRODUCTION_URL = `${process.env.PRODUCTION}${context.params?.englishVerb}`
-  const { data: dataVerb } = await axios.get<DataTypes>(DEV_URL)
+  const DEV_URL = process.env.DEV1
+  const { data: dataVerb } = await axios.get<DataTypes>(`${DEV_URL}/verb/${context.params?.englishVerb}`)
+  const { data: popularVerb } = await axios.get<EnglishPopularVerbProps>(`${DEV_URL}/popular`)
   return {
     props: {
       dataVerb,
+      popularVerb,
     },
   }
 }

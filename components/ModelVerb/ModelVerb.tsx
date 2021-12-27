@@ -5,23 +5,25 @@ import Section from '../Common/Section'
 import Typography from '../Common/Typography'
 import Link from 'next/link'
 import { DataType } from '../CardVerb/CardVerb'
+import LinkWithText from '../Common/LinkWithText'
 
 const SectionContainer = styled.div(tw`mt-4 border-2  big:flex  items-center justify-between`)
 
 const ModelVerb = ({verbList}:DataType) => {
     const [{model,auxiliary,other_infinitive}] = verbList
+
     const auxiliaryArray = auxiliary.split(',')
     return (
         <SectionContainer>
       <Section flex gap={2}>
            <Typography variant='text' isTertiary>Model:</Typography>
-           <Typography variant='text' isSecondaryHover><Link href='/english/[englishVerb]' as={`/english/${model}`} passHref>{model}</Link></Typography>
+           <LinkWithText language={'english'} dynamicRoute={'englishVerb'} text={model} />
        </Section>
        <Section flex gap={2}>
            <Typography variant='text' isTertiary>Auxiliary:</Typography>
-           <Typography variant='text' isSecondaryHover><Link href='/english/[englishVerb]' as={`/english/${auxiliaryArray[0]}`} passHref>{auxiliaryArray[0]}</Link></Typography>
+            <LinkWithText language={'english'} dynamicRoute={'englishVerb'} text={auxiliaryArray[0]}/>
            <Typography variant='text' isSecondaryHover>,</Typography>
-           <Typography variant='text' isSecondaryHover><Link href='/english/[englishVerb]' as={`/english/${auxiliaryArray[1]}`} passHref>{auxiliaryArray[1]}</Link></Typography>
+           <LinkWithText language={'english'} dynamicRoute={'englishVerb'} text={auxiliaryArray[1]}/> 
        </Section>
        <Section flex gap={2}>
            <Typography variant='text' isTertiary>Other forms:</Typography>

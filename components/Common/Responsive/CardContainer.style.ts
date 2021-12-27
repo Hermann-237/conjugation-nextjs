@@ -1,5 +1,22 @@
 
 import { styled as styledUI} from '@mui/material/styles';
+const PopularBase = {
+    downMd:{
+        display:'flex',
+         gap:'2%',
+        flexWrap: 'wrap'
+    },
+    upMd:{
+        display:'grid',
+        gridTemplateColumns: 'auto auto',
+        gap:'5px'
+    },
+}
+export const PopularBaseUI = styledUI('div')(({ theme }) => ({
+    padding: theme.spacing(1),
+    [theme.breakpoints.down('md')]: PopularBase.downMd,
+    [theme.breakpoints.up('md')]: PopularBase.upMd,
+  }));
 
 const BaseStyled = {
     downMd:{
@@ -15,6 +32,7 @@ export const BaseStyledUI = styledUI('div')(({ theme }) => ({
     [theme.breakpoints.up('xs')]: BaseStyled.downMd,
     [theme.breakpoints.up('sm')]: BaseStyled.upMd,
   }));
+
   const SidebarStyled = {
     downMd:{
         width:`${100}%`,
