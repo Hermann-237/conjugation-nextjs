@@ -10,12 +10,12 @@ export const EnglishMessages = {
       }
     },
     description:{
-        verbEnglish:(verb?:string | string[])=>`Conjugate the French verb ${verb} in all tenses: future, participle, present, indicative, subjunctive. Irregular verbs, auxiliary verbs, conjugation rules and conjugation models in French verb conjugation. Translate ${verb} in context, with examples of use  and definition.`,
+        verbEnglish:(verb?:string | string[])=>`Conjugate the English verb ${verb} in all tenses: future, participle, present, indicative, subjunctive. Irregular verbs, auxiliary verbs, conjugation rules and conjugation models in English verb conjugation. Translate ${verb} in context, with examples of use  and definition.`,
         french:'Conjuguez un verbe français au futur, au présent, au participe avec Simplecyto Conjugator. Voir les modèles de conjugaison française pour les verbes réguliers et irréguliers, les auxiliaires être et avoir.',
         english:'Conjugate a French verb in the future, present, participle with Simplecyto Conjugator. See the French conjugation models for regular and irregular verbs, the auxiliaries to be and to have.'
     },
     title:{
-        verbEnglish:(verb?:string | string[])=>`Conjugation ${verb} | Conjugate verb ${verb} French | Reverso Conjugator`,
+        verbEnglish:(verb?:string | string[])=>`Conjugation ${verb} | Conjugate verb ${verb} in English | Reverso Conjugator`,
         french:'Conjugaison française : verbe français, futur, participe, verbes irréguliers',
         english:'English conjugation: English verb, future, participle, irregular verbs',
     },

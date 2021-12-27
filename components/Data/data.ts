@@ -1,226 +1,190 @@
-const data = [
+const data = {
+  result: 'OK',
+  infinitive: 'allow',
+  other_infinitive: 'to allow',
+  preterite: 'allowed',
+  past_participle: 'allowed',
+  model: 'obey',
+  auxiliary: 'have,be',
+  conjugation: [
     {
-      result: "OK",
-      infinitif: "être",
-      passeGroup: "avoir été",
-      partiticipe_passe: "été",
-      partiticipe_present: "étant",
-      model:"être",
-      auxiliary:'avoir',
-      other_forms:'ne pas être',
-      verbes: [
+      mode: 'INDICATIF',
+      conjugation_forms: [
         {
-          mode: "INDICATIF",
-          conjugation_forms: [
-            {
-              title: "PRÉSENT",
-              mode_array: [
-                "je suis",
-                "tu es",
-                "il/elle est",
-                "nous sommes",
-                "vous êtes",
-                "ils/elles sont",
-              ],
-            },
-            {
-              title: "IMPARFAIT",
-              mode_array: [
-                "j'étais",
-                "tu étais",
-                "il/elle était",
-                "nous étions",
-                "vous étiez",
-                "ils/elles étaient",
-              ],
-            },
-            {
-              title: "FUTUR",
-              mode_array: [
-                "je serai",
-                "tu seras",
-                "il/elle sera",
-                "nous serons",
-                "vous serez",
-                "ils/elles seront",
-              ],
-            },
-            {
-              title: "PASSÉ SIMPLE",
-              mode_array: [
-                "je fus",
-                "tu fus",
-                "il/elle fut",
-                "nous fûmes",
-                "vous fûtes",
-                "ils/elles furent",
-              ],
-            },
-            {
-              title: "PASSÉ COMPOSÉ",
-              mode_array: [
-                "j'ai été",
-                "tu as été",
-                "il/elle a été",
-                "nous avons été",
-                "vous avez été",
-                "ils/elles ont été",
-              ],
-            },
-            {
-              title: "PLUS-QUE-PARFAIT",
-              mode_array: [
-                "j'avais été",
-                "tu avais été",
-                "il/elle avait été",
-                "nous avions été",
-                "vous aviez été",
-                "ils/elles avaient été",
-              ],
-            },
-            {
-              title: "PASSÉ ANTÉRIEUR",
-              mode_array: [
-                "j'eus été",
-                "tu eus été",
-                "il/elle eut été",
-                "nous eûmes été",
-                "vous eûtes été",
-                "ils/elles eurent été",
-              ],
-            },
-            {
-              title: "FUTUR ANTÉRIEUR",
-              mode_array: [
-                "j'aurai été",
-                "tu auras été",
-                "il/elle aura été",
-                "nous aurons été",
-                "vous aurez été",
-                "ils/elles auront été",
-              ],
-            },
+          title: 'Present',
+          mode_array: [
+            'I  allow',
+            'you  allow',
+            'he/she/it  allows',
+            'we  allow',
+            'you  allow',
+            'they  allow',
           ],
         },
         {
-          mode: "SUBJONCTIF",
-          conjugation_forms: [
-            {
-              title: "PRÉSENT",
-              mode_array: [
-                "que je sois",
-                "que tu sois",
-                "qu'il/elle soit",
-                "que nous soyons",
-                "que vous soyez",
-                "qu'ils/elles soient",
-              ],
-            },
-            {
-              title: "IMPARFAIT",
-              mode_array: [
-                "que je fusse",
-                "que tu fusses",
-                "qu'il/elle fût",
-                "que nous fussions",
-                "que vous fussiez",
-                "qu'ils/elles fussent",
-              ],
-            },
-            {
-              title: "PLUS-QUE-PARFAIT",
-              mode_array: [
-                "que j'eusse été",
-                "que tu eusses été",
-                "qu'il/elle eût été",
-                "que nous eussions été",
-                "que vous eussiez été",
-                "qu'ils/elles eussent été",
-              ],
-            },
-            {
-              title: "PASSÉ",
-              mode_array: [
-                "que j'aie été",
-                "que tu aies été",
-                "qu'il/elle ait été",
-                "que nous ayons été",
-                "que vous ayez été",
-                "qu'ils/elles aient été",
-              ],
-            },
+          title: 'Preterite',
+          mode_array: [
+            'I  allowed',
+            'you  allowed',
+            'he/she/it  allowed',
+            'we  allowed',
+            'you  allowed',
+            'they  allowed',
           ],
         },
         {
-          mode: "CONDITIONNEL",
-          conjugation_forms: [
-            {
-              title: "PRÉSENT",
-              mode_array: [
-                "je serais",
-                "tu serais",
-                "il/elle serait",
-                "nous serions",
-                "vous seriez",
-                "ils/elles seraient",
-              ],
-            },
-            {
-              title: "PASSÉ PREMIÈRE FORME",
-              mode_array: [
-                "j'aurais été",
-                "tu aurais été",
-                "il/elle aurait été",
-                "nous aurions été",
-                "vous auriez été",
-                "ils/elles auraient été",
-              ],
-            },
-            {
-              title: "PASSÉ DEUXIÈME FORME",
-              mode_array: [
-                "j'eusse été",
-                "tu eusses été",
-                "il/elle eût été",
-                "nous eussions été",
-                "vous eussiez été",
-                "ils/elles eussent été",
-              ],
-            },
+          title: 'Present continuous',
+          mode_array: [
+            'I  am  allowing',
+            'you  are  allowing',
+            'he/she/it  is  allowing',
+            'we  are  allowing',
+            'you  are  allowing',
+            'they  are  allowing',
           ],
         },
         {
-          mode: "PARTICIPE",
-          conjugation_forms: [
-            { title: "PRÉSENT", mode_array: ["étant"] },
-            { title: "PASSÉ COMPOSÉ", mode_array: ["ayant été"] },
-            {
-              title: "PASSÉ",
-              mode_array: [
-                "masc.sg.: été",
-                "masc.pl.: été",
-                "fém.sg.: été",
-                "fém.pl.: été",
-              ],
-            },
+          title: 'Present perfect',
+          mode_array: [
+            'I  have  allowed',
+            'you  have  allowed',
+            'he/she/it  has  allowed',
+            'we  have  allowed',
+            'you  have  allowed',
+            'they  have  allowed',
           ],
         },
         {
-          mode: "IMPERATIF",
-          conjugation_forms: [
-            { title: "PRÉSENT", mode_array: ["sois", "soyons", "soyez"] },
-            { title: "PASSÉ", mode_array: ["aie été", "ayons été", "ayez été"] },
+          title: 'Future',
+          mode_array: [
+            'I  will  allow',
+            'you  will  allow',
+            'he/she/it  will  allow',
+            'we  will  allow',
+            'you  will  allow',
+            'they  will  allow',
           ],
         },
         {
-          mode: "INFINITIF",
-          conjugation_forms: [
-            { title: "PRÉSENT", mode_array: ["être"] },
-            { title: "PASSÉ", mode_array: ["avoir été"] },
+          title: 'Future perfect',
+          mode_array: [
+            'I  will  have  allowed',
+            'you  will  have  allowed',
+            'he/she/it  will  have  allowed',
+            'we  will  have  allowed',
+            'you  will  have  allowed',
+            'they  will  have  allowed',
+          ],
+        },
+        {
+          title: 'Past continous',
+          mode_array: [
+            'I  was  allowing',
+            'you  were  allowing',
+            'he/she/it  was  allowing',
+            'we  were  allowing',
+            'you  were  allowing',
+            'they  were  allowing',
+          ],
+        },
+        {
+          title: 'Past perfect',
+          mode_array: [
+            'I  had  allowed',
+            'you  had  allowed',
+            'he/she/it  had  allowed',
+            'we  had  allowed',
+            'you  had  allowed',
+            'they  had  allowed',
+          ],
+        },
+        {
+          title: 'Future continuous',
+          mode_array: [
+            'I  will  be  allowing',
+            'you  will  be  allowing',
+            'he/she/it  will  be  allowing',
+            'we  will  be  allowing',
+            'you  will  be  allowing',
+            'they  will  be  allowing',
+          ],
+        },
+        {
+          title: 'Present perfect continuous',
+          mode_array: [
+            'I  have  been  allowing',
+            'you  have  been  allowing',
+            'he/she/it  has  been  allowing',
+            'we  have  been  allowing',
+            'you  have  been  allowing',
+            'they  have  been  allowing',
+          ],
+        },
+        {
+          title: 'Past perfect continuous',
+          mode_array: [
+            'I  had  been  allowing',
+            'you  had  been  allowing',
+            'he/she/it  had  been  allowing',
+            'we  had  been  allowing',
+            'you  had  been  allowing',
+            'they  had  been  allowing',
+          ],
+        },
+        {
+          title: 'Future perfect continuous',
+          mode_array: [
+            'I  will  have  been  allowing',
+            'you  will  have  been  allowing',
+            'he/she/it  will  have  been  allowing',
+            'we  will  have  been  allowing',
+            'you  will  have  been  allowing',
+            'they  will  have  been  allowing',
           ],
         },
       ],
     },
-  ]
+    {
+      mode: 'IMPERATIVE',
+      conjugation_forms: [
+        {
+          title: '',
+          mode_array: ['allow', "let's  allow", 'allow'],
+        },
+      ],
+    },
+    {
+      mode: 'PARTICIPE',
+      conjugation_forms: [
+        {
+          title: 'Present',
+          mode_array: ['allowing'],
+        },
+        {
+          title: 'Past',
+          mode_array: ['allowed'],
+        },
+      ],
+    },
+    {
+      mode: 'INFINITIVE',
+      conjugation_forms: [
+        {
+          title: '',
+          mode_array: ['to  allow'],
+        },
+      ],
+    },
+    {
+      mode: 'PERFECT PARTICIPE',
+      conjugation_forms: [
+        {
+          title: '',
+          mode_array: ['having  allowed'],
+        },
+      ],
+    },
+  ],
+}
 
-  export default data
+export default data

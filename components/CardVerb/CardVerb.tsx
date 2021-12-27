@@ -3,37 +3,40 @@ import tw from 'twin.macro'
 import styled from '@emotion/styled'
 
 import Typography from '../../components/Common/Typography'
-import { CardContainer, CardUI } from '../../components/Common/Responsive/CardContainer.style'
+import { BaseStyledUI, CardBaseStyledUI, CardContainer, CardUI } from '../../components/Common/Responsive/CardContainer.style'
 import data from '../Data/data'
+import SideBar from '../SideBar/SideBar'
 
-export type DataType ={
-    verbList: {
+export type DataType = {
+    verbList:{
     result: string
-    infinitif: string
-    passeGroup: string
-    partiticipe_passe: string
-    partiticipe_present: string
+    infinitive: string
+    other_infinitive: string
+    preterite: string
+    past_participle: string
     model: string
     auxiliary: string
-    other_forms: string
-    verbes: {
+    conjugation: {
         mode: string
         conjugation_forms: {
             title: string
             mode_array: string[]
         }[]
     }[]
-}[]
-} 
+    }[]
+}
 
-const CardBase = styled.div(tw`p-4 shadow mt-4 rounded`)
+const Base = styled(BaseStyledUI)(tw`mt-10`)
+const CardBase = styled(CardBaseStyledUI)(tw`p-4 shadow mt-4 rounded`)
 const CardUIStyled = styled(CardUI)(tw`p-4 shadow rounded bg-common`)
 const CardItem = styled.div(tw`px-4 flex justify-start gap-x-2 gap-y-0`)
+
 const CardVerb = ({verbList}:DataType) => {
     return (
+        <Base>
         <CardBase>
             {
-                verbList[0].verbes.map(({conjugation_forms,mode},index)=>(
+                verbList[0].conjugation.map(({conjugation_forms,mode},index)=>(
                   <React.Fragment key={index}>
                      <Typography uppercase variant='header'isSecondary center paddingY={4}> {mode} </Typography>
                      <CardContainer>
@@ -43,15 +46,19 @@ const CardVerb = ({verbList}:DataType) => {
                                    <Typography variant='text' isSecondary paddingX={4} uppercase paddingY={4}>{title}</Typography>
                                    {
                                        mode_array.map((item,verbIndex)=>{
-                                           const [firstItem,...restItem] = item.split(' ')
+                                           const arrItem = item.split(' ')
+                                           const firstItem = arrItem.shift()
+                                           const lastItems = arrItem.pop()
+                                        
                                           return(
                                              <CardItem key={`${item}-${verbIndex}`}>
                                                <Typography variant='text' isTertiary center>{firstItem}</Typography>
                                                {
-                                                   restItem.map((element,indexEl)=>(
+                                                   arrItem.map((element,indexEl)=>(
                                                        <Typography variant='text' isSecondary center key={`${element}-${indexEl}`}>{element}</Typography>
                                                    ))
                                                }
+                                               <Typography variant='text' isPrimary center>{lastItems}</Typography>
                                              </CardItem>
                                           )
                                        })
@@ -64,6 +71,8 @@ const CardVerb = ({verbList}:DataType) => {
                 ))
             }
        </CardBase>
+       <SideBar/>
+       </Base>
     )
 }
 
