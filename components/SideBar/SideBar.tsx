@@ -13,13 +13,13 @@ const SideBar:React.FC<EnglishPopularVerbProps & EnglishIrregularVerbProps> = ({
     return (
         <Base>
         <Container>
-            <Typography variant='title' isSecondary>
+            <Typography variant='text' isSecondary uppercase>
                 {SideBarMessages.popularVerb}
             </Typography>
         </Container>
          <EnglishPopularVerb popularVerb={popularVerb}/>
          <Container>
-            <Typography variant='title' isSecondary>
+            <Typography variant='text' isSecondary uppercase>
                 {SideBarMessages.irregularVerb}
             </Typography>
         </Container>

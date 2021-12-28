@@ -48,13 +48,12 @@ const CardVerb = ({verbList,popularVerb,irregularVerb}:DataType
                          {
                              conjugation_forms.map(({title,mode_array},formIndex)=>(
                                 <CardUIStyled key={`${title}-${index}-${formIndex}`}>
-                                   <Typography variant='text' isSecondary paddingX={4} uppercase paddingY={4}>{title}</Typography>
+                                   <Typography variant='text' isSecondary paddingX={4}  paddingY={4}>{title}</Typography>
                                    {
                                        mode_array.map((item,verbIndex)=>{
                                            const arrItem = item.split(' ')
                                            const firstItem = arrItem.shift()
                                            const lastItems = arrItem.pop()
-                                        
                                           return(
                                              <CardItem key={`${item}-${verbIndex}`}>
                                                <Typography variant='text' isTertiary center>{firstItem}</Typography>

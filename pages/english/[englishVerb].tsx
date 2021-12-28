@@ -16,6 +16,7 @@ import Footer from '../../components/Footer/Footer'
 import { GetServerSideProps } from 'next'
 import { EnglishPopularVerbProps } from '../../components/PopularVerbs/EnglishPopularVerb'
 import { EnglishIrregularVerbProps } from '../../components/EnglishIrregularVerb/EnglishIrregularVerb'
+import Typography from '../../components/Common/Typography'
 
 type DataTypes = {
   result: string
@@ -35,10 +36,12 @@ type DataTypes = {
 }
 
 const SectionBase = styled.div(tw`mx-4 big:mx-20`)
-const English = ({ dataVerb,popularVerb ,irregularVerb}: { dataVerb: DataTypes }
-  &EnglishPopularVerbProps
-  &EnglishIrregularVerbProps
-  ) => {
+const English = ({
+  dataVerb,
+  popularVerb,
+  irregularVerb,
+}: { dataVerb: DataTypes } & EnglishPopularVerbProps &
+  EnglishIrregularVerbProps) => {
   const {
     query: { englishVerb },
   } = useRouter()
@@ -54,10 +57,20 @@ const English = ({ dataVerb,popularVerb ,irregularVerb}: { dataVerb: DataTypes }
       <Input />
       <SectionBase>
         <Toolbox />
-        <InfinitifVerb verbList={[dataVerb]} />
-        <Divider style={{ marginTop: '2rem' }} />
-        <ModelVerb verbList={[dataVerb]} />
-        <CardVerb verbList={[dataVerb]} popularVerb={popularVerb} irregularVerb={irregularVerb}/>
+        {dataVerb ? (
+          <React.Fragment>
+            <InfinitifVerb verbList={[dataVerb]} />
+            <Divider style={{ marginTop: '2rem' }} />
+            <ModelVerb verbList={[dataVerb]} />
+            <CardVerb
+              verbList={[dataVerb]}
+              popularVerb={popularVerb}
+              irregularVerb={irregularVerb}
+            />
+          </React.Fragment>
+        ) : (
+          <Typography>This page does not exist</Typography>
+        )}
       </SectionBase>
       <Footer />
     </>
@@ -66,9 +79,19 @@ const English = ({ dataVerb,popularVerb ,irregularVerb}: { dataVerb: DataTypes }
 
 export const getServerSideProps: GetServerSideProps = async context => {
   const DEV_URL = process.env.DEV1
-  const { data: dataVerb } = await axios.get<DataTypes>(`${DEV_URL}/english/verb/${context.params?.englishVerb}`)
-  const { data: popularVerb } = await axios.get<EnglishPopularVerbProps>(`${DEV_URL}/english/popular`)
-  const { data: irregularVerb } = await axios.get<EnglishIrregularVerbProps>(`${DEV_URL}/english/irregular`)
+  const verbString = context.params?.englishVerb
+  const verb =
+    typeof verbString === 'string' &&
+    verbString.split('-').reverse()[0].split('.')[0]
+  const { data: dataVerb } = await axios.get<DataTypes>(
+    `${DEV_URL}/english/verb/${verb}`,
+  )
+  const { data: popularVerb } = await axios.get<EnglishPopularVerbProps>(
+    `${DEV_URL}/english/popular`,
+  )
+  const { data: irregularVerb } = await axios.get<EnglishIrregularVerbProps>(
+    `${DEV_URL}/english/irregular`,
+  )
   return {
     props: {
       dataVerb,

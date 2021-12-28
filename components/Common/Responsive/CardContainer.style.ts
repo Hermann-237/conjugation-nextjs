@@ -38,7 +38,7 @@ export const BaseStyledUI = styledUI('div')(({ theme }) => ({
         width:`${100}%`,
     },
     upMd:{
-        width:`${20}%`,
+        width:`${15}%`,
     },
 }
 export const SidebarStyledUI = styledUI('div')(({ theme }) => ({
@@ -51,7 +51,7 @@ const CardBaseStyled = {
         width:`${100}%`,
     },
     upMd:{
-        width:`${80}%`,
+        width:`${85}%`,
     },
 }
 export const CardBaseStyledUI = styledUI('div')(({ theme }) => ({
