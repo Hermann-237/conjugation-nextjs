@@ -1,4 +1,5 @@
 const SideBarMessages = {
-    title: "Popular's verbs",
+    popularVerb: "Popular's verbs",
+    irregularVerb: "Irregular's verbs",
 }
 export default SideBarMessages
