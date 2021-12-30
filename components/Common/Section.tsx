@@ -35,7 +35,7 @@ const Section = styled.div<SectionProps>(
     left,
     between,
   }) => [
-    flex && tw`flex`,
+    flex && tw`flex flex-wrap`,
     col && tw`flex-col`,
     gap === 4 && flex && col && tw`gap-y-4`,
     gap === 4 && flex && !col && tw`gap-x-4`,
