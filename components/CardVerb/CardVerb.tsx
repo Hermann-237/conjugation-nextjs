@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 
 import Typography from '../../components/Common/Typography'
 import { BaseStyledUI, CardBaseStyledUI, CardContainer, CardUI } from '../../components/Common/Responsive/CardContainer.style'
-import data from '../Data/data'
 import SideBar from '../SideBar/SideBar'
 import { EnglishPopularVerbProps } from '../PopularVerbs/EnglishPopularVerb'
 import { EnglishIrregularVerbProps } from '../EnglishIrregularVerb/EnglishIrregularVerb'
