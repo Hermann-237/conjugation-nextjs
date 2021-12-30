@@ -8,15 +8,16 @@ import axios from 'axios'
 
 import { EnglishMessages } from '../../messages/EnglishMessages'
 import Input from '../../components/Common/Input'
-import CardVerb from '../../components/CardVerb/CardVerb'
-import Toolbox from '../../components/Toolbox/Toolbox'
-import ModelVerb from '../../components/ModelVerb/ModelVerb'
-import InfinitifVerb from '../../components/InfinitivVerb/InfinitifVerb'
-import Footer from '../../components/Footer/Footer'
+import CardVerb from '../../components/CardVerb'
+import Toolbox from '../../components/Toolbox'
+import ModelVerb from '../../components/ModelVerb'
+import InfinitifVerb from '../../components/InfinitivVerb/'
 import { GetServerSideProps } from 'next'
 import { EnglishPopularVerbProps } from '../../components/PopularVerbs/EnglishPopularVerb'
-import { EnglishIrregularVerbProps } from '../../components/EnglishIrregularVerb/EnglishIrregularVerb'
+import { EnglishAllVerbProps, EnglishIrregularVerbProps } from '../../components/EnglishIrregularVerb/EnglishIrregularVerb'
 import Typography from '../../components/Common/Typography'
+import AlphabeticalVerb from '../../components/AlphabeticalVerb'
+import InputAutoComplet from '../../components/Common/InputAutoComplet'
 
 type DataTypes = {
   result: string
@@ -35,14 +36,15 @@ type DataTypes = {
     }[]
   }[]
 }
+const alphabeticArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','Z']
 
-const SectionBase = styled.div(tw`mx-4 big:mx-20`)
 const English = ({
   dataVerb,
   popularVerb,
   irregularVerb,
+  allVerb,
 }: { dataVerb: DataTypes } & EnglishPopularVerbProps &
-  EnglishIrregularVerbProps) => {
+  EnglishIrregularVerbProps & EnglishAllVerbProps) => {
   const {
     query: { englishVerb },
   } = useRouter()
@@ -56,8 +58,8 @@ const English = ({
         )}
         keywordsContent={EnglishMessages.key.verbEnglish(verb)}
       />
-      <Input />
-      <SectionBase>
+       <InputAutoComplet data={allVerb.all_verb}/>
+      <>
         <Toolbox />
         {dataVerb ? (
           <React.Fragment>
@@ -73,8 +75,9 @@ const English = ({
         ) : (
           <Typography>This page does not exist</Typography>
         )}
-      </SectionBase>
-      <Footer />
+      </>
+      <AlphabeticalVerb data ={alphabeticArray}/>
+      
     </>
   )
 }
@@ -94,11 +97,15 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const { data: irregularVerb } = await axios.get<EnglishIrregularVerbProps>(
     `${DEV_URL}/english/irregular`,
   )
+  const { data: allVerb } = await axios.get<EnglishAllVerbProps>(
+    `${DEV_URL}/english/all-verb`,
+  )
   return {
     props: {
       dataVerb,
       popularVerb,
       irregularVerb,
+      allVerb,
     },
   }
 }

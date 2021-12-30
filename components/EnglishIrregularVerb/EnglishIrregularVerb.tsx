@@ -7,6 +7,11 @@ export type EnglishIrregularVerbProps={
         irregular_verb:string[]
     } 
 }
+export type EnglishAllVerbProps={
+    allVerb:{
+        all_verb:string[]
+    } 
+}
 const EnglishIrregularVerb = ({irregularVerb}:EnglishIrregularVerbProps) => {
     return (
         <IrregularBaseUI>

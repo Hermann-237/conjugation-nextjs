@@ -75,7 +75,7 @@
     },
     page:'portuguese',
   };
-  if (path === "english" || path === "" ) return english;
+  if (path === "english" || path === "" ||'privacy' ) return english;
   if (path === "german") return german;
   if (path === "french") return french;
   if (path === "portuguese") return portuguese;
