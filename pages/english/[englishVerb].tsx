@@ -26,6 +26,7 @@ type DataTypes = {
   past_participle: string
   model: string
   auxiliary: string
+  other_forms:string
   conjugation: {
     mode: string
     conjugation_forms: {
@@ -45,14 +46,15 @@ const English = ({
   const {
     query: { englishVerb },
   } = useRouter()
+  const verb = typeof englishVerb ==='string' && englishVerb.split('-').reverse()[0].split('.')[0]
   return (
     <>
       <Header
-        title={EnglishMessages.title.verbEnglish(englishVerb)}
+        title={EnglishMessages.title.verbEnglish(verb)}
         descriptionContent={EnglishMessages.description.verbEnglish(
-          englishVerb,
+          verb,
         )}
-        keywordsContent={EnglishMessages.key.verbEnglish(englishVerb)}
+        keywordsContent={EnglishMessages.key.verbEnglish(verb)}
       />
       <Input />
       <SectionBase>

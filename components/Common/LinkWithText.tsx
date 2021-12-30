@@ -11,7 +11,7 @@ type LinkWithTextProps = {
 const LinkWithText= ({language,dynamicRoute,text}:LinkWithTextProps):JSX.Element => {
     return (
         <Typography variant='text' isSecondaryHover>
-            <Link href={`/${language}/[${dynamicRoute}]`} as={`/${language}/conjugation-${language}-verb-${text}.html`} passHref>{text}</Link>
+            <Link href={`/${language}/[${dynamicRoute}]`} as={`/${language}/conjugation-${language}-verb-${text.trim()}.html`} passHref>{text}</Link>
         </Typography>
     )
 }

@@ -18,6 +18,7 @@ export type DataType = {
     past_participle: string
     model: string
     auxiliary: string
+    other_forms:string
     conjugation: {
         mode: string
         conjugation_forms: {

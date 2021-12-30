@@ -10,7 +10,7 @@ import LinkWithText from '../Common/LinkWithText'
 const SectionContainer = styled.div(tw`mt-4 border-2  big:flex  items-center justify-between`)
 
 const ModelVerb = ({verbList}:DataType) => {
-    const [{model,auxiliary,other_infinitive}] = verbList
+    const [{model,auxiliary,other_forms}] = verbList
 
     const auxiliaryArray = auxiliary.split(',')
     return (
@@ -27,7 +27,7 @@ const ModelVerb = ({verbList}:DataType) => {
        </Section>
        <Section flex gap={2}>
            <Typography variant='text' isTertiary>Other forms:</Typography>
-           <Typography variant='text' isSecondary>{other_infinitive} </Typography>
+           <Typography variant='text' isSecondary>{other_forms}</Typography>
        </Section>
       </SectionContainer>
     )
