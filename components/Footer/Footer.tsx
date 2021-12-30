@@ -9,7 +9,6 @@ const Container = styled.div(()=>[tw`flex flex-wrap`])
 const BigSection = styled.div(()=>[tw`grid grid-cols-1 big:grid-cols-2 gap-2`])
 const Section = styled.div(()=>[tw`mb-5`])
 const Paragraphe = styled.p(()=>[tw`cursor-pointer`])
-const HeadBase = styled.div(()=>[tw`text-2xl pb-4`])
 
 const Footer = ():JSX.Element => {
     const newdate = (new Date()).getFullYear()
