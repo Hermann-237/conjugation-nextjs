@@ -19,7 +19,6 @@ function sleep(delay = 0) {
 const SectionBase = styled(Section)(tw`pt-28 mb-5`)
 
 const  InputAutoComplet = ({data}:InputAutoCompletProps)=> {
-  const [verb, setVerb] = React.useState('');
   const [open, setOpen] = React.useState(false);
   const [options, setOptions] = React.useState<readonly string[]>([]);
   const loading = open && options.length === 0;

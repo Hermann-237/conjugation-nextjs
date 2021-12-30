@@ -8,12 +8,6 @@ import {useRouter} from 'next/router'
 
 const EnglishIndex = () => {
   const router = useRouter()
-  useEffect(()=>{
-    router.push('/english/conjugation-english-verb-be.html')
-    /* setTimeout(()=>{
-      router.push('/english/conjugation-english-verb-be.html')
-    },10) */
-  },[])
   return (
     <>
       <Header
