@@ -12,7 +12,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export":"npm run build && next export"
+
+
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^11.0.0",
