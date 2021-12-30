@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import Paper from '@mui/material/Paper'
 import InputBase from '@mui/material/InputBase'
 import IconButton from '@mui/material/IconButton'
@@ -18,8 +18,8 @@ const Input = () => {
         placeholder="Search for a verb"
         inputProps={{ 'aria-label': 'Search for a verb' }}
       />
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-        <SearchIcon />
+      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={(e)=>console.log()}>
+        <SearchIcon/>
       </IconButton>
     </Paper>
       </Base>

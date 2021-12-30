@@ -12,7 +12,7 @@ import goHome from '../../hooks/goHome'
 import { BG_NAVBAR, HOVER_LINK, TEXT_SECONDARY } from '../Common/Colors'
 
 const NavigationBase = styled.nav(
-  ()=>[tw`fixed flex items-center w-full big:px-17 px-2 py-2 flex-wrap shadow-md z-50`,
+  ()=>[tw`fixed left-0 right-0 top-0 flex items-center w-full big:px-17 px-2 py-2 flex-wrap shadow-md z-50`,
   BG_NAVBAR,
 ]
 )
