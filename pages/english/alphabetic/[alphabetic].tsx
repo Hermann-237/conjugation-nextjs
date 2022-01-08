@@ -6,7 +6,6 @@ import { EnglishMessages } from '../../../messages/EnglishMessages'
 import { useRouter } from 'next/router'
 import Input from '../../../components/Common/Input'
 import Typography from '../../../components/Common/Typography'
-import AlphabeticMessage from './AlphabeticMessage'
 import { GetServerSideProps } from 'next'
 import { EnglishAllVerbProps } from '../../../components/EnglishIrregularVerb/EnglishIrregularVerb'
 import axios from 'axios'
@@ -14,6 +13,9 @@ import Section from '../../../components/Common/Section'
 import LinkWithText from '../../../components/Common/LinkWithText'
 import InputAutoComplet from '../../../components/Common/InputAutoComplet'
 
+const AlphabeticMessage = {
+  title:(alphabetic:string | boolean)=>` List of verbs starting with ${alphabetic} `,
+}
 const EnglishAlphabetic = ({allVerb}:EnglishAllVerbProps) => {
     const {
         query: { alphabetic },

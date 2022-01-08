@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Button } from '@mui/material';
 import Section from './Section';
 import { useRouter } from 'next/router';
 
@@ -41,7 +40,7 @@ const  InputAutoComplet = ({data}:InputAutoCompletProps)=> {
     return () => {
       active = false;
     };
-  }, [loading]);
+  }, [loading,data]);
 
   React.useEffect(() => {
     if (!open) {
