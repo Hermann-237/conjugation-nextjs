@@ -58,7 +58,7 @@ const English = ({
         )}
         keywordsContent={EnglishMessages.key.verbEnglish(verb)}
       />
-       <InputAutoComplet data={allVerb.all_verb}/>
+     { allVerb &&  <InputAutoComplet data={allVerb.all_verb}/>}
       <>
         <Toolbox />
         {dataVerb ? (
@@ -68,8 +68,8 @@ const English = ({
             <ModelVerb verbList={[dataVerb]} />
             <CardVerb
               verbList={[dataVerb]}
-              popularVerb={popularVerb}
-              irregularVerb={irregularVerb}
+              /* popularVerb={popularVerb}
+              irregularVerb={irregularVerb} */
             />
           </React.Fragment>
         ) : (

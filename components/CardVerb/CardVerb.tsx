@@ -33,9 +33,9 @@ const CardBase = styled(CardBaseStyledUI)(tw`p-4 shadow mt-4 rounded`)
 const CardUIStyled = styled(CardUI)(tw`p-4 shadow rounded bg-common`)
 const CardItem = styled.div(tw`px-4 flex justify-start gap-x-2 gap-y-0`)
 
-const CardVerb = ({verbList,popularVerb,irregularVerb}:DataType 
-    & EnglishPopularVerbProps 
-    & EnglishIrregularVerbProps
+const CardVerb = ({verbList/* ,popularVerb,irregularVerb */}:DataType 
+    /* & EnglishPopularVerbProps 
+    & EnglishIrregularVerbProps */
     ) => {
     return (
         <Base>
@@ -75,7 +75,7 @@ const CardVerb = ({verbList,popularVerb,irregularVerb}:DataType
                 ))
             }
        </CardBase>
-       <SideBar popularVerb={popularVerb} irregularVerb={irregularVerb}/>
+       {/* <SideBar popularVerb={popularVerb} irregularVerb={irregularVerb}/> */}
        </Base>
     )
 }
