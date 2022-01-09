@@ -84,13 +84,13 @@ const English = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-  const DEV_URL = process.env.DEV1
+  const DEV_URL = process.env.DEV
   const verbString = context.params?.englishVerb
   const verb =
     typeof verbString === 'string' &&
     verbString.split('-').reverse()[0].split('.')[0]
   const { data: dataVerb } = await axios.get<DataTypes>(
-    `https://us-central1-simplecyto-nextjs-backend.cloudfunctions.net/app/api/english/verb/${verb}`,
+    `${DEV_URL}/english/verb/${verb}`,
   )
   /* const { data: popularVerb } = await axios.get<EnglishPopularVerbProps>(
     `${DEV_URL}/english/popular`,
@@ -99,7 +99,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     `${DEV_URL}/english/irregular`,
   ) */
   const { data: allVerb } = await axios.get<EnglishAllVerbProps>(
-    `https://us-central1-simplecyto-nextjs-backend.cloudfunctions.net/app/api/english/all-verb`,
+    `${DEV_URL}/english/all-verb`,
   )
   return {
     props: {
