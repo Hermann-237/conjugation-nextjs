@@ -48,7 +48,7 @@ const English = ({
   const {
     query: { englishVerb },
   } = useRouter()
-  console.log(dataVerb)
+  console.log({dataVerb})
   const verb = typeof englishVerb ==='string' && englishVerb.split('-').reverse()[0].split('.')[0]
   return (
     <>
