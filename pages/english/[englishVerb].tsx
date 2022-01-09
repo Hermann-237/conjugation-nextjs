@@ -12,7 +12,7 @@ import CardVerb from '../../components/CardVerb'
 import Toolbox from '../../components/Toolbox'
 import ModelVerb from '../../components/ModelVerb'
 import InfinitifVerb from '../../components/InfinitivVerb/'
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, GetStaticProps } from 'next'
 import { EnglishPopularVerbProps } from '../../components/PopularVerbs/EnglishPopularVerb'
 import { EnglishAllVerbProps, EnglishIrregularVerbProps } from '../../components/EnglishIrregularVerb/EnglishIrregularVerb'
 import Typography from '../../components/Common/Typography'
@@ -89,18 +89,23 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const verb =
     typeof verbString === 'string' &&
     verbString.split('-').reverse()[0].split('.')[0]
-  const { data: dataVerb } = await axios.get<DataTypes>(
-    `${DEV_URL}/english/verb/use`,
-  )
+  /* const { data: dataVerb } = await axios.get<DataTypes>(
+    `${DEV_URL}/english/verb/${verb}`,
+  ) */
+  const resDataVerb = await fetch(`${DEV_URL}/english/verb/${verb}`)
+  const dataVerb = await resDataVerb.json()
   /* const { data: popularVerb } = await axios.get<EnglishPopularVerbProps>(
     `${DEV_URL}/english/popular`,
   )
   const { data: irregularVerb } = await axios.get<EnglishIrregularVerbProps>(
     `${DEV_URL}/english/irregular`,
   ) */
-  const { data: allVerb } = await axios.get<EnglishAllVerbProps>(
+  /* const { data: allVerb } = await axios.get<EnglishAllVerbProps>(
     `${DEV_URL}/english/all-verb`,
-  )
+  ) */
+  const resAllVerb = await fetch(`${DEV_URL}/english/verb/${verb}`)
+  const allVerb = await resAllVerb.json()
+  
   return {
     props: {
       dataVerb,
