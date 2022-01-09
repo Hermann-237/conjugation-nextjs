@@ -90,7 +90,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     typeof verbString === 'string' &&
     verbString.split('-').reverse()[0].split('.')[0]
   const { data: dataVerb } = await axios.get<DataTypes>(
-    `${DEV_URL}/english/verb/${verb}`,
+    `http://localhost:5000/simplecyto-nextjs-backend/us-central1/app/api/english/verb/${verb}`,
   )
   /* const { data: popularVerb } = await axios.get<EnglishPopularVerbProps>(
     `${DEV_URL}/english/popular`,
@@ -99,7 +99,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     `${DEV_URL}/english/irregular`,
   ) */
   const { data: allVerb } = await axios.get<EnglishAllVerbProps>(
-    `${DEV_URL}/english/all-verb`,
+    `http://localhost:5000/simplecyto-nextjs-backend/us-central1/app/api/english/all-verb`,
   )
   return {
     props: {
