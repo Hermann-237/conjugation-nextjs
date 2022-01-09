@@ -40,8 +40,8 @@ const alphabeticArray = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'
 
 const English = ({
   dataVerb,
-  popularVerb,
-  irregularVerb,
+/*   popularVerb,
+  irregularVerb, */
   allVerb,
 }: { dataVerb: DataTypes } & EnglishPopularVerbProps &
   EnglishIrregularVerbProps & EnglishAllVerbProps) => {
@@ -103,8 +103,8 @@ export const getServerSideProps: GetServerSideProps = async context => {
   return {
     props: {
       dataVerb,
-      popularVerb,
-      irregularVerb,
+    /*   popularVerb,
+      irregularVerb, */
       allVerb,
     },
   }
