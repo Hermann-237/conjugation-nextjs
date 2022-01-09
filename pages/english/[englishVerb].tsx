@@ -48,6 +48,7 @@ const English = ({
   const {
     query: { englishVerb },
   } = useRouter()
+  console.log(dataVerb)
   const verb = typeof englishVerb ==='string' && englishVerb.split('-').reverse()[0].split('.')[0]
   return (
     <>
@@ -91,12 +92,12 @@ export const getServerSideProps: GetServerSideProps = async context => {
   const { data: dataVerb } = await axios.get<DataTypes>(
     `${DEV_URL}/english/verb/${verb}`,
   )
-  const { data: popularVerb } = await axios.get<EnglishPopularVerbProps>(
+  /* const { data: popularVerb } = await axios.get<EnglishPopularVerbProps>(
     `${DEV_URL}/english/popular`,
   )
   const { data: irregularVerb } = await axios.get<EnglishIrregularVerbProps>(
     `${DEV_URL}/english/irregular`,
-  )
+  ) */
   const { data: allVerb } = await axios.get<EnglishAllVerbProps>(
     `${DEV_URL}/english/all-verb`,
   )
