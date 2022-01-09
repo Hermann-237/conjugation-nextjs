@@ -90,7 +90,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     typeof verbString === 'string' &&
     verbString.split('-').reverse()[0].split('.')[0]
   const { data: dataVerb } = await axios.get<DataTypes>(
-    `${DEV_URL}/english/verb/${verb}`,
+    `${DEV_URL}/english/verb/use`,
   )
   /* const { data: popularVerb } = await axios.get<EnglishPopularVerbProps>(
     `${DEV_URL}/english/popular`,
